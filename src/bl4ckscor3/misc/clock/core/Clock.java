@@ -7,6 +7,8 @@ import bl4ckscor3.misc.clock.timesystem.Normal;
 
 public class Clock
 {
+	//TODO: Timezones
+	//TODO: setting the time & getting the current pc time
 	public static void main(String[] args)
 	{
 		Scanner s = new Scanner(System.in);

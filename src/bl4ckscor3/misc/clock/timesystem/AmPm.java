@@ -54,10 +54,10 @@ public class AmPm
 					h1++;
 				}
 				
-				if(h1 == 1 && h2 == 2 && m1 == 0 && m2 == 0 && m1 == 0 && s1 == 0 && s2 == 0)
+				if(h1 == 1 && h2 == 2 && m1 == 0 && m2 == 0 && m1 == 0 && s1 == 0 && s2 == 0) //used to append the correct letters to the time
 					am = !am;
 
-				if(h1 == 1 && h2 == 3)
+				if(h1 == 1 && h2 == 3) //there is no 13:00:00 in am/pm
 				{
 					h2 = 1;
 					h1 = 0;
