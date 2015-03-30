@@ -1,0 +1,158 @@
+klasse Clock
+>
+	meth main param :str args: gibt nichts
+	>
+		#scanner definieren
+		bool amPm >nein<;
+		
+		schreib "Möchtest Du das 12h oder 24h system nutzen? Schreibe die dazugehörige Zahl hinein.";
+		schreib "1. 12h";
+		schreib "2. 24h";
+		
+		amPm >->#einscannen#<-= 1<;
+		
+		wenn bed :amPm:
+		>
+			amPm param ::;
+		<
+		sonst
+		>
+			normal param ::;
+		<
+	<
+	
+	meth amPm param :: gibt nichts
+	>
+		#irgendwie nen timer einbinden
+		int h1 >0<;
+		int h2 >0<;
+		int m1 >0<;
+		int m2 >0<;
+		int s1 >0<;
+		int s2 >0<;
+		bool am >ja<;
+		
+		s2->;
+		
+		wenn bed :s2 = 10:
+		>
+			s2 >0<;
+			s1->;
+		<
+		
+		wenn bed :s1 = 6:
+		>
+			s1 >0<;
+			m2->;
+		<
+		
+		wenn bed :m2 = 10:
+		>
+			m2 >0<;
+			m1->;
+		<
+		
+		wenn bed :m1 = 6:
+		>
+			m1 >0<;
+			h2->;
+		<
+		
+		wenn bed :h2 = 10:
+		>
+			h2 >0<;
+			h1->;
+		<
+		
+		wenn bed :h1 = 1 & h2 ? 2 & m1 = 0 & m2 = 0 & m1 = 0 & s1 = 0 & s2 = 0:
+		>
+			wenn bed :am:
+			>
+				am >nein<;
+			<
+			sonst
+			>
+				am >ja<;
+			<
+		<
+		
+		wenn bed :h1 = 1 & h2 = 3:
+		>
+			h2 >1<;
+			h1 >0<
+		<
+		
+		schreib "" + h1 + h2 + ":" + m1 + m2 + ":" + s1 + s2 + " " + amPm(am);
+	<
+	
+	meth normal param :: gibt nichts
+	>
+		#irgendwie nen timer einbinden
+		int h1 >0<;
+		int h2 >0<;
+		int m1 >0<;
+		int m2 >0<;
+		int s1 >0<;
+		int s2 >0<;
+		
+		s2->;
+		
+		wenn bed :s2 = 10:
+		>
+			s2 >0<;
+			s1->;
+		<
+		
+		wenn bed :s1 = 6:
+		>
+			s1 >0<;
+			m2->;
+		<
+		
+		wenn bed :m2 = 10:
+		>
+			m2 >0<;
+			m1->;
+		<
+		
+		wenn bed :m1 = 6:
+		>
+			m1 >0<;
+			h2->;
+		<
+		
+		wenn bed :h2 = 10:
+		>
+			h2 >0<;
+			h1->;
+		<
+		
+		wenn bed :h1 = 2 & h2 = 4:
+		>
+			h1 >0<;
+			h2 >0<;
+		<
+		
+		schreib "" + h1 + h2 + ":" + m1 + m2 + ":" + s1 + s2;
+		
+		wenn bed :h1 = 1 & h2 = 3:
+		>
+			h2 >1<;
+			h1 >0<
+		<
+		
+		schreib "" + h1 + h2 + ":" + m1 + m2 + ":" + s1 + s2;
+	<
+	
+	meth amPm param :bool am: gibt str
+	>
+		wenn bed :am:
+		>
+			gib "AM";
+		<
+		sonst
+		>
+			gib "PM";
+		<
+	<
+<
